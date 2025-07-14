@@ -4,45 +4,80 @@ import './exp.css';
 const Experience = () => {
     return (
         <section id="exp">
-            <span className='expname'> Professional Experience </span><br/>
+            <span className="expname">Professional Experience</span>
             <div className="line"></div>
-            <div className='expBars'>
-                <div className={`expBar border1`}>
-                    <div className='expBarText'>
-                    <div class="expBarText">
-                        <h2>Python Developer</h2>
-                        <h1> - MIRA Advance Engineering</h1>
-                    </div>
-                        <h1>August 2023 - October 2023</h1>
-                        <p> - Engaged as a Python Developer Intern, spearheading the creation and timely delivery of diverse Python projects. <br/> - Facilitated knowledge transfer by creating informative demonstration videos to comprehensively explain project tasks to team members and employees. <br/> - This proactive approach ensured project success, fostered information exchange, and improved  the organization's overall understanding of the projects. </p>
+            <div className="expBars">
+                <div className="expBar border1">
+                    <div className="expBarText">
+                        <div className="jobTitle">
+                            <h2>Data Analyst and Business Intelligence Engineer</h2>
+                            <h3>- Ground Effects</h3>
+                        </div>
+                        <h1>January 2025 - Present</h1>
+                        <p>
+                            - Developed and automated Python scripts for ETL, data validation, and workflow optimization, reducing manual intervention by 50% and ensuring scalable, high-integrity data pipelines. <br />
+                            - Mastered Snowflake, SSMS, and SQL to manage and query large-scale datasets, performing advanced data cleaning, transformation, and validation, resulting in a 99% increase in data accuracy and enhanced business insights. <br />
+                            - Designed and maintained 10+ dynamic Tableau dashboards for real-time KPI tracking, executive reporting, and operational analysis, cutting manual reporting efforts by 40% and accelerating data-driven decisions. <br />
+                            - Collaborated cross-functionally to implement data-driven solutions, improving BI workflows, aligning reporting with strategic goals, and boosting operational efficiency by 30%.
+                        </p>
                     </div>
                 </div>
-                <div className={`expBar border2`}>
-                    <div className='expBarText'>
-                    <div class="expBarText">
-                        <h2>Software Engineer Intern</h2>
-                        <h1> - Vision Mechatronics Pvt Ltd</h1>
-                    </div>
+
+                <div className="expBar border2">
+                    <div className="expBarText">
+                        <div className="jobTitle">
+                            <h2>Software Engineer</h2>
+                            <h3>- Vision Mechatronics Pvt Ltd</h3>
+                        </div>
                         <h1>October 2022 - April 2023</h1>
-                        <p> - Collaborated on the "Pattern Recognition and Behaviour Tagging in IoT Enabled Electrical Devices" project with a team of four developers. <br/> - Designed and implemented a dashboard utilizing custom Python modules and algorithms to enhance pattern detection in Lithium-ion battery sensor data. <br/> - Achieved a significant reduction of 15 hours per week in manual work through innovative solutions. Additionally, managed battery behaviour tagging, supporting over 10 clients in performance assessment, anomaly detection, and device monitoring. </p>
+                        <p>
+                            - Developed Python modules and custom machine learning algorithms for pattern recognition and behaviour tagging in lithium-ion battery sensor data, enabling real-time anomaly detection and threshold breach identification. <br />
+                            - Implemented a real-time monitoring dashboard using Django, reducing manual oversight by 18+ hours/week and supporting over 15 international clients with automated data tracking and alerting. <br />
+                            - Processed and analysed 1M+ data points for battery performance modelling, enabling data-driven insights that improved battery life prediction accuracy by 30%.
+                        </p>
                     </div>
                 </div>
-                <div className={`expBar border3`}>
-                    <div className='expBarText'>
-                    <div class="expBarText">
-                        <h2>Software Engineer Intern</h2>
-                        <h1> - Sureprep Pvt Ltd</h1>
-                    </div>
+
+                <div className="expBar border3">
+                    <div className="expBarText">
+                        <div className="jobTitle">
+                            <h2>Data Analyst</h2>
+                            <h3>- Sureprep Pvt Ltd</h3>
+                        </div>
                         <h1>June 2022 - August 2022</h1>
-                        <p> - My role was to assist the team to develop products such as TaxCaddy and Fileroom with the help of the ASP.net framework. <br/> - I Leveraged different built-in HTTP features, such as HTTP authentication and HTTP verbs, which can be understood by off-the shelf HTTP clients. <br/> - Employed different technologies such as ASP.net, SQL server, and Java for working on product development and also designed the workflow for File Agent; implemented SQL server queries to find the perfect solution required. <br/> - Had to present my work to different employees. </p>
+                        <p>
+                            - Leveraged advanced data analysis techniques to identify key business trends, resulting in actionable insights that improved operational efficiency by 30% and influenced strategic decision-making. <br />
+                            - Developed and deployed automated reporting tools using SQL and Power BI, streamlining business intelligence workflows and reducing manual reporting time by 35%, enabling real-time performance monitoring. <br />
+                            - Collaborated with stakeholders to design custom dashboards and analytics solutions, enhancing business strategy alignment and delivering insights that improved decision-making speed and sales performance by 25%.
+                        </p>
+                    </div>
+                </div>
+
+                <div className="expBar border3">
+                    <div className="expBarText">
+                        <div className="jobTitle">
+                            <h2>Python Developer</h2>
+                            <h3>- Mira Advance Engineering</h3>
+                        </div>
+                        <h1>August 2023 - October 2023</h1>
+                        <p>
+                            - Worked as a Python Developer Intern contributing to multiple projects within strict deadlines. <br />
+                            - Created demonstration videos to explain code functionality, ensuring effective knowledge transfer across the team. <br />
+                            - Promoted technical clarity and supported collaborative success through well-documented, shareable content.
+                        </p>
                     </div>
                 </div>
             </div>
-            <a href="https://www.linkedin.com/in/harsh-dhandukiya-b460081ab/" target="_blank" rel="noopener noreferrer">
-                <button className="viewExpButton">View Experience on Linkedin</button>
+
+            <a
+                href="https://www.linkedin.com/in/harsh-dhandukiya-b460081ab/"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                <button className="viewExpButton">View Experience on LinkedIn</button>
             </a>
         </section>
     );
-}
+};
 
 export default Experience;

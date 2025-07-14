@@ -1,19 +1,26 @@
+/* Global Box Sizing */
+* {
+    box-sizing: border-box;
+}
+
 #exp {
     margin: 0 auto;
     text-align: center;
-    justify-content: center;
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    align-items: center;
     width: 90vw;
     max-width: 65rem;
+    padding: 4rem 1rem 2rem;
+    background-color: #000;
 }
 
 .expname {
-    padding-top: 5rem;
     font-size: 3rem;
-    font-weight: 600;
+    font-weight: 700;
     color: #fff;
+    margin-bottom: 0.5rem;
 }
 
 .line {
@@ -25,68 +32,74 @@
 
 .expBars {
     display: flex;
-    flex-direction: column; 
-    align-items: center; 
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+    align-items: stretch;
 }
 
 .expBar {
-    width: 100%; 
-    box-sizing: border-box;
-    padding: 1rem; 
-    border-radius: 0.5rem;
-    margin-bottom: 1.5rem;
+    width: 100%;
     background: rgb(55, 55, 55);
-}
-
-.border1 {
-    border: 1.5px solid #fdbb2d; 
-}
-
-.border2 {
-    border: 1.5px solid #fdbb2d; 
-}
-
-.border3 {
-    border: 1.5px solid #fdbb2d; 
-}
-
-.expBarText > h2 {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #fdbb2d;
-}
-
-.expBarText > h1 {
-    font-size: 1.2rem;
-    font-weight: 500;
-    margin: 0.5rem 0;
-}
-
-.expBarText > p {
-    font-size: 0.9rem;
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    transition: transform 0.3s ease;
     text-align: left;
-    font-weight: 200;
-    margin-top: 0.6rem;
-    color: #ccc;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    box-sizing: border-box;
 }
 
-.expBarText > h2, .expBarText > h1 {
-    display: inline; 
-    margin: 0; 
+.expBar:hover {
+    transform: scale(1.01);
 }
 
-body {
-    background-color: #000;
-    font-family: sans-serif;
-    color: #fff;
+.border1,
+.border2,
+.border3 {
+    border: 1.5px solid #fdbb2d;
 }
 
+.jobTitle {
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
 
+.jobTitle h2 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #fdbb2d;
+    margin: 0;
+}
+
+.jobTitle h3 {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #ffffff;
+    margin: 0.2rem 0;
+}
+
+.expBarText h1 {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #ffffff;
+    margin: 0.3rem 0;
+}
+
+.expBarText p {
+    font-size: 0.95rem;
+    color: #cccccc;
+    font-weight: 300;
+    line-height: 1.6;
+    margin-top: 0.8rem;
+    white-space: pre-line;
+}
 
 .viewExpButton {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-    padding: 0.6rem 1rem;
+    margin-top: 2.5rem;
+    padding: 0.7rem 1.4rem;
     font-size: 1rem;
     background-color: #fdbb2d;
     color: #000;
@@ -98,4 +111,36 @@ body {
 
 .viewExpButton:hover {
     background-color: #ffa500;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+    .expname {
+        font-size: 2.3rem;
+    }
+
+    .jobTitle h2 {
+        font-size: 1.2rem;
+    }
+
+    .jobTitle h3 {
+        font-size: 1rem;
+    }
+
+    .expBarText h1 {
+        font-size: 1rem;
+    }
+
+    .expBarText p {
+        font-size: 0.85rem;
+    }
+
+    .expBar {
+        padding: 1rem;
+    }
+
+    .viewExpButton {
+        font-size: 0.9rem;
+        padding: 0.5rem 1rem;
+    }
 }
