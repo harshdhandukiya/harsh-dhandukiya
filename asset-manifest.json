@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/harsh-dhandukiya/static/css/main.9178e604.css",
-    "main.js": "/harsh-dhandukiya/static/js/main.fd99766a.js",
+    "main.css": "/harsh-dhandukiya/static/css/main.c862a856.css",
+    "main.js": "/harsh-dhandukiya/static/js/main.7a971cc2.js",
     "static/media/project4.png": "/harsh-dhandukiya/static/media/project4.cd7eb5cb24aae37d161a.png",
     "static/media/insta.webp": "/harsh-dhandukiya/static/media/insta.ac31e22207e23b7186e8.webp",
     "static/media/profile.jpeg": "/harsh-dhandukiya/static/media/profile.9c04665de7d7f1b9e2e0.jpeg",
@@ -18,11 +18,11 @@
     "static/media/twitter.webp": "/harsh-dhandukiya/static/media/twitter.b84dff92d1347582c674.webp",
     "static/media/linkedin.webp": "/harsh-dhandukiya/static/media/linkedin.4c11b4693dd4eebca5be.webp",
     "index.html": "/harsh-dhandukiya/index.html",
-    "main.9178e604.css.map": "/harsh-dhandukiya/static/css/main.9178e604.css.map",
-    "main.fd99766a.js.map": "/harsh-dhandukiya/static/js/main.fd99766a.js.map"
+    "main.c862a856.css.map": "/harsh-dhandukiya/static/css/main.c862a856.css.map",
+    "main.7a971cc2.js.map": "/harsh-dhandukiya/static/js/main.7a971cc2.js.map"
   },
   "entrypoints": [
-    "static/css/main.9178e604.css",
-    "static/js/main.fd99766a.js"
+    "static/css/main.c862a856.css",
+    "static/js/main.7a971cc2.js"
   ]
 }
