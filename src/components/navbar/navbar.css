@@ -1,44 +1,796 @@
-.navbar{
-    background-color:black;
-    height : 5rem;
-    width : 100vw;
+.navbar {
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border-bottom: 1px solid rgba(120, 120, 120, 0.5);
+    height: 4rem;
+    width: 100vw;
     max-width: 85rem;
-    margin : 0 auto;
-    padding : 1rem 2rem;
+    margin: 0 auto;
+    padding: 0.8rem 2rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    position : sticky;
-    top :0;
-    z-index : 3;
-
+    position: sticky;
+    top: 0;
+    z-index: 3;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
+    border-radius: 0 0 20px 20px;
+    position: relative;
+    overflow: hidden;
 }
 
-.logo{
+.navbar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+        radial-gradient(circle at 25% 25%, rgba(120, 120, 180, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 75% 75%, rgba(150, 150, 120, 0.06) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(100, 100, 100, 0.08) 0%, transparent 50%);
+    animation: ambientGlow 6s ease-in-out infinite;
+}
+
+.navbar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,
+        transparent,
+        rgba(130, 130, 180, 0.08),
+        rgba(120, 120, 160, 0.12),
+        rgba(140, 140, 120, 0.08),
+        transparent);
+    animation: shimmer 8s ease-in-out infinite;
+}
+
+@keyframes ambientGlow {
+    0%, 100% {
+        opacity: 0.3;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.6;
+        transform: scale(1.02);
+    }
+}
+
+@keyframes shimmer {
+    0% { left: -100%; }
+    50% { left: 100%; }
+    100% { left: 100%; }
+}
+
+.logo {
     object-fit: cover;
-    height : 3rem;
-    width : 4rem;
-}
-
-.desktopMenuListItem{
-    margin : 1rem;
+    height: 3.5rem;
+    width: 4.5rem;
+    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    filter: drop-shadow(0 0 15px rgba(150, 150, 150, 0.4));
+    border-radius: 50%;
+    border: 2px solid rgba(130, 130, 130, 0.5);
+    background: linear-gradient(135deg, rgba(110, 110, 110, 0.2), rgba(130, 130, 130, 0.2));
+    padding: 2px;
+    position: relative;
     cursor: pointer;
+    z-index: 3;
 }
 
-.desktopMenuListItem:hover{
-    color: #fdbb2d;
-    padding-bottom: 0.5rem;
-    border-bottom: 3px solid #fdbb2d;
-
+.logo::before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    background: linear-gradient(45deg, #999, #888, #777, #999);
+    border-radius: 50%;
+    z-index: -1;
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    animation: borderPulse 3s ease-in-out infinite;
 }
 
-.desktopMenuImg{
-    object-fit: cover;
-    height: 2rem;
-    width : 8rem;
+.logo::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, rgba(150, 150, 150, 0.3) 0%, transparent 70%);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-.desktopMenuButton{
+@keyframes borderPulse {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 0.8; }
+}
+
+.logo:hover::before {
+    opacity: 1;
+    animation: rotateGlow 2s linear infinite;
+}
+
+.logo:hover::after {
+    width: 150%;
+    height: 150%;
+}
+
+@keyframes rotateGlow {
+    0% { transform: rotate(0deg) scale(1); }
+    50% { transform: rotate(180deg) scale(1.1); }
+    100% { transform: rotate(360deg) scale(1); }
+}
+
+.logo:hover {
+    transform: scale(1.1) rotate(5deg);
+    filter: drop-shadow(0 0 25px rgba(150, 150, 150, 0.8));
+    border-color: rgba(150, 150, 150, 0.8);
+}
+
+.desktopMenu {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    position: relative;
+    z-index: 3;
+}
+
+.desktopMenuListItem {
+    margin: 0 1.2rem;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    color: #e8e8e8;
+    font-size: 1rem;
+    padding: 0.8rem 1.5rem;
+    border-radius: 12px;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    background: rgba(120, 120, 120, 0.05);
+    border: 1px solid rgba(130, 130, 130, 0.2);
+}
+
+.desktopMenuListItem::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg,
+        rgba(150, 150, 150, 0.2),
+        rgba(130, 130, 130, 0.3),
+        rgba(110, 110, 110, 0.2));
+    transition: left 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    border-radius: 12px;
+}
+
+.desktopMenuListItem::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #999, #888, #777);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transform: translateX(-50%);
+    border-radius: 2px;
+}
+
+.desktopMenuListItem:hover::before {
+    left: 0;
+}
+
+.desktopMenuListItem:hover::after {
+    width: 70%;
+}
+
+.desktopMenuListItem:hover {
+    color: #ffffff;
+    text-shadow: 0 0 20px rgba(150, 150, 150, 0.8);
+    transform: translateY(-3px) scale(1.05);
+    background: rgba(130, 130, 130, 0.1);
+    border-color: rgba(150, 150, 150, 0.4);
+    box-shadow: 0 8px 25px rgba(100, 100, 100, 0.3);
+}
+
+.desktopMenuButton {
     cursor: pointer;
     border: none;
+    background: transparent;
+    padding: 0;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+    z-index: 3;
+}
+
+.contactIcon {
+    width: 3rem;
+    height: 3rem;
+    position: relative;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #777, #999, #888);
+    border: 2px solid rgba(150, 150, 150, 0.5);
+    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 0 0 20px rgba(120, 120, 120, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.contactIcon::before {
+    content: '✉';
+    font-size: 1.2rem;
+    color: #ffffff;
+    font-weight: bold;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.9);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+    z-index: 2;
+}
+
+.contactIcon::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, rgba(150, 150, 150, 0.4) 0%, transparent 70%);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.desktopMenuButton:hover .contactIcon {
+    transform: scale(1.15) rotate(10deg);
+    box-shadow: 0 0 35px rgba(150, 150, 150, 0.8), 0 0 60px rgba(120, 120, 120, 0.5);
+    border-color: rgba(150, 150, 150, 0.8);
+    background: linear-gradient(135deg, #888, #aaa, #999);
+}
+
+.desktopMenuButton:hover .contactIcon::after {
+    width: 140%;
+    height: 140%;
+}
+
+.desktopMenuButton:hover .contactIcon::before {
+    transform: scale(1.2) rotate(-10deg);
+    text-shadow: 0 0 20px rgba(255, 255, 255, 1);
+}
+
+/* Floating particles effect */
+.navbar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+        radial-gradient(circle at 25% 25%, rgba(150, 150, 150, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 75% 75%, rgba(120, 120, 120, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(100, 100, 100, 0.08) 0%, transparent 50%);
+    animation: ambientGlow 6s ease-in-out infinite;
+    pointer-events: none;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 0.8rem;
+        height: auto;
+        flex-wrap: wrap;
+    }
+
+    .desktopMenu {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        margin-top: 1rem;
+        gap: 0.25rem;
+    }
+
+    .desktopMenuListItem {
+        margin: 0 0.5rem;
+        font-size: 0.9rem;
+        padding: 0.6rem 1rem;
+    }
+
+    .logo {
+        height: 3rem;
+        width: 4rem;
+    }
+
+    .contactIcon {
+        width: 2.8rem;
+        height: 2.8rem;
+    }
+}
+
+.navbar::after {
+    content: '>_';
+    position: absolute;
+    top: 50%;
+    left: 2rem;
+    transform: translateY(-50%);
+    font-family: 'Courier New', monospace;
+    font-size: 0.8rem;
+    color: rgba(150, 150, 150, 0.6);
+    animation: blink 1.5s infinite;
+    opacity: 0.7;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 0.7; }
+    51%, 100% { opacity: 0; }
+}
+
+@keyframes matrixPulse {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.6; }
+}
+
+.logo {
+    object-fit: cover;
+    height: 3rem;
+    width: 4rem;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    filter: drop-shadow(0 0 8px rgba(150, 150, 150, 0.3));
+    border-radius: 50%;
+    border: 2px solid rgba(120, 120, 120, 0.4);
+    background: linear-gradient(45deg, rgba(100, 100, 100, 0.1), rgba(120, 120, 120, 0.1));
+    padding: 2px;
+    position: relative;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.logo::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #888, #999, #777, #888);
+    border-radius: 50%;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.logo::after {
+    content: '01010101';
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Courier New', monospace;
+    font-size: 0.6rem;
+    color: rgba(150, 150, 150, 0.4);
+    opacity: 0;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.logo:hover::before {
+    opacity: 1;
+    animation: rotate 2s linear infinite;
+}
+
+.logo:hover::after {
+    opacity: 1;
+    top: -30px;
+}
+
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.logo:hover {
+    transform: scale(1.05) rotate(2deg);
+    filter: drop-shadow(0 0 15px rgba(150, 150, 150, 0.6));
+    border-color: rgba(150, 150, 150, 0.6);
+}
+
+.desktopMenu {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    position: relative;
+    z-index: 2;
+}
+
+.desktopMenuListItem {
+    margin: 0 1rem;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    color: #e0e0e0;
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    overflow: hidden;
+    font-family: 'Courier New', monospace;
+}
+
+.desktopMenuListItem::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(150, 150, 150, 0.1), transparent);
+    transition: left 0.5s ease;
+}
+
+.desktopMenuListItem::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #888, #999);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.desktopMenuListItem:hover::before {
+    left: 100%;
+}
+
+.desktopMenuListItem:hover::after {
+    width: 80%;
+}
+
+.desktopMenuListItem:hover {
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(150, 150, 150, 0.5);
+    transform: translateY(-1px);
+    background: rgba(150, 150, 150, 0.05);
+    animation: glitch 0.3s ease-in-out;
+}
+
+@keyframes glitch {
+    0% { transform: translateY(0) translateX(0); }
+    20% { transform: translateY(-1px) translateX(-1px); }
+    40% { transform: translateY(1px) translateX(1px); }
+    60% { transform: translateY(-1px) translateX(1px); }
+    80% { transform: translateY(1px) translateX(-1px); }
+    100% { transform: translateY(0) translateX(0); }
+}
+
+.desktopMenuButton {
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    padding: 0;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    z-index: 2;
+}
+
+.contactIcon {
+    width: 2.5rem;
+    height: 2.5rem;
+    position: relative;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #666, #888, #777);
+    border: 2px solid rgba(150, 150, 150, 0.4);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 0 15px rgba(100, 100, 100, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.contactIcon::before {
+    content: '>_';
+    font-family: 'Courier New', monospace;
+    font-size: 1rem;
+    color: #ffffff;
+    font-weight: bold;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
+
+.contactIcon::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, rgba(150, 150, 150, 0.3) 0%, transparent 70%);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.4s ease;
+}
+
+.desktopMenuButton:hover .contactIcon {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 0 25px rgba(150, 150, 150, 0.6), 0 0 40px rgba(120, 120, 120, 0.4);
+    border-color: rgba(150, 150, 150, 0.6);
+    animation: terminalFlash 0.5s ease-in-out;
+}
+
+@keyframes terminalFlash {
+    0%, 100% { filter: brightness(1); }
+    50% { filter: brightness(1.3); }
+}
+
+.desktopMenuButton:hover .contactIcon::after {
+    width: 120%;
+    height: 120%;
+}
+
+.desktopMenuButton:hover .contactIcon::before {
+    transform: scale(1.1);
+    text-shadow: 0 0 15px rgba(255, 255, 255, 1);
+}
+
+/* Matrix-style background pattern */
+.navbar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+        radial-gradient(circle at 20% 80%, rgba(100, 100, 100, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(120, 120, 120, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(80, 80, 80, 0.05) 0%, transparent 50%);
+    animation: matrixPulse 4s ease-in-out infinite;
+    pointer-events: none;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 1rem;
+        height: auto;
+        flex-wrap: wrap;
+    }
+
+    .navbar::after {
+        display: none;
+    }
+
+    .desktopMenu {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        margin-top: 1rem;
+        gap: 0.25rem;
+    }
+
+    .desktopMenuListItem {
+        margin: 0 0.5rem;
+        font-size: 0.8rem;
+        padding: 0.4rem 0.8rem;
+    }
+
+    .logo {
+        height: 2.5rem;
+        width: 3.5rem;
+    }
+}
+
+.logo {
+    object-fit: cover;
+    height: 3rem;
+    width: 4rem;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    filter: drop-shadow(0 0 8px rgba(150, 150, 150, 0.3));
+    border-radius: 50%;
+    border: 2px solid rgba(120, 120, 120, 0.3);
+    background: linear-gradient(45deg, rgba(100, 100, 100, 0.1), rgba(120, 120, 120, 0.1));
+    padding: 2px;
+    position: relative;
+    cursor: pointer;
+}
+
+.logo::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #888, #999, #777, #888);
+    border-radius: 50%;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.logo:hover::before {
+    opacity: 1;
+    animation: rotate 2s linear infinite;
+}
+
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.logo:hover {
+    transform: scale(1.05) rotate(2deg);
+    filter: drop-shadow(0 0 15px rgba(150, 150, 150, 0.6));
+    border-color: rgba(150, 150, 150, 0.5);
+}
+
+.desktopMenu {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    position: relative;
+}
+
+.desktopMenuListItem {
+    margin: 0 1rem;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    color: #e0e0e0;
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.desktopMenuListItem::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(150, 150, 150, 0.1), transparent);
+    transition: left 0.5s ease;
+}
+
+.desktopMenuListItem:hover::before {
+    left: 100%;
+}
+
+.desktopMenuListItem::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #888, #999);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.desktopMenuListItem:hover::after {
+    width: 80%;
+}
+
+.desktopMenuListItem:hover {
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(150, 150, 150, 0.5);
+    transform: translateY(-1px);
+    background: rgba(150, 150, 150, 0.05);
+}
+
+.desktopMenuButton {
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    padding: 0;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+
+.contactIcon {
+    width: 2.5rem;
+    height: 2.5rem;
+    position: relative;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #666, #888, #777);
+    border: 2px solid rgba(150, 150, 150, 0.3);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 0 15px rgba(100, 100, 100, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.contactIcon::before {
+    content: '✉';
+    font-size: 1.2rem;
+    color: #ffffff;
+    font-weight: bold;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
+
+.contactIcon::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, rgba(150, 150, 150, 0.3) 0%, transparent 70%);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.4s ease;
+}
+
+.desktopMenuButton:hover .contactIcon {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 0 25px rgba(150, 150, 150, 0.6), 0 0 40px rgba(120, 120, 120, 0.4);
+    border-color: rgba(150, 150, 150, 0.6);
+}
+
+.desktopMenuButton:hover .contactIcon::after {
+    width: 120%;
+    height: 120%;
+}
+
+.desktopMenuButton:hover .contactIcon::before {
+    transform: scale(1.1);
+    text-shadow: 0 0 15px rgba(255, 255, 255, 1);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 1rem;
+        height: auto;
+        flex-wrap: wrap;
+    }
+
+    .desktopMenu {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        margin-top: 1rem;
+        gap: 0.25rem;
+    }
+
+    .desktopMenuListItem {
+        margin: 0 0.5rem;
+        font-size: 0.8rem;
+        padding: 0.4rem 0.8rem;
+    }
+
+    .logo {
+        height: 2.5rem;
+        width: 3.5rem;
+    }
 }

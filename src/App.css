@@ -1,0 +1,126 @@
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* Perfect centering and symmetry for all sections */
+section,
+#contact,
+#intro,
+#skill,
+#edu,
+#exp,
+#works,
+.edu-header,
+.edu-cards {
+  width: 100%;
+  max-width: 85rem;
+  margin: 0 auto;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+/* Ensure perfect horizontal centering */
+section > *,
+#contact > *,
+#intro > *,
+#skill > *,
+#edu > *,
+#exp > *,
+#works > *,
+.edu-header > *,
+.edu-cards > * {
+  max-width: 75rem;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* Perfect vertical centering for content */
+section > div,
+#contact > div,
+#intro > div,
+#skill > div,
+#edu > div,
+#exp > div,
+#works > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  min-height: inherit;
+}
+
+/* Responsive adjustments for perfect symmetry */
+@media (max-width: 1024px) {
+  section,
+  #contact,
+  #intro,
+  #skill,
+  #edu,
+  #exp,
+  #works,
+  .edu-header,
+  .edu-cards {
+    padding: 1.5rem;
+    max-width: 95vw;
+  }
+
+  section > *,
+  #contact > *,
+  #intro > *,
+  #skill > *,
+  #edu > *,
+  #exp > *,
+  #works > *,
+  .edu-header > *,
+  .edu-cards > * {
+    max-width: 90vw;
+  }
+}
+
+@media (max-width: 768px) {
+  section,
+  #contact,
+  #intro,
+  #skill,
+  #edu,
+  #exp,
+  #works,
+  .edu-header,
+  .edu-cards {
+    padding: 1rem;
+    min-height: auto;
+    padding-top: 5rem;
+    padding-bottom: 3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  section,
+  #contact,
+  #intro,
+  #skill,
+  #edu,
+  #exp,
+  #works,
+  .edu-header,
+  .edu-cards {
+    padding: 0.75rem;
+  }
+}
