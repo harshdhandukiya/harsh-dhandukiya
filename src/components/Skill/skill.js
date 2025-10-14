@@ -8,7 +8,7 @@ const Skill = () => {
         powerbi: 0,
         tableau: 0,
         excel: 0,
-        pandas: 0
+        software: 0
     });
 
     useEffect(() => {
@@ -19,7 +19,7 @@ const Skill = () => {
                 powerbi: 88,
                 tableau: 82,
                 excel: 95,
-                pandas: 80
+                software: 80
             });
         }, 500);
 
@@ -29,49 +29,49 @@ const Skill = () => {
     const skills = [
         {
             title: 'Python Programming',
-            description: 'Advanced Python development with data science libraries',
+            description: 'Advanced Python development for data analysis, automation, and building scalable solutions using libraries like Pandas, NumPy, and Scikit-learn.',
             progress: progressValues.python,
             icon: '🐍',
             color: '#00ffff'
         },
         {
-            title: 'SQL Database',
-            description: 'Complex queries, database design, and optimization',
+            title: 'SQL',
+            description: 'Proficient in writing complex queries, database design, and optimizing large datasets for reporting and analytics.',
             progress: progressValues.sql,
             icon: '🗄️',
             color: '#ff00ff'
         },
         {
             title: 'Power BI',
-            description: 'Interactive dashboards and business intelligence',
+            description: 'Create interactive dashboards and reports that transform raw data into actionable business insights.',
             progress: progressValues.powerbi,
             icon: '📊',
             color: '#ffff00'
         },
         {
             title: 'Tableau',
-            description: 'Advanced data visualization and storytelling',
+            description: 'Design interactive visualizations and dashboards to communicate complex data effectively to stakeholders.',
             progress: progressValues.tableau,
             icon: '📈',
             color: '#00ff00'
         },
         {
             title: 'Excel Expertise',
-            description: 'Advanced formulas, pivot tables, and automation',
+            description: 'Advanced skills in pivot tables, formulas, macros, and automation for data analysis and reporting.',
             progress: progressValues.excel,
             icon: '📋',
             color: '#ff6600'
         },
         {
-            title: 'Pandas & NumPy',
-            description: 'Data manipulation and scientific computing',
-            progress: progressValues.pandas,
-            icon: '🔢',
+            title: 'Software Development',
+            description: 'Experience in building robust software solutions, implementing best practices, and developing applications with clean, maintainable code.',
+            progress: progressValues.software,
+            icon: '💻',
             color: '#ff1493'
         }
     ];
 
-    return(
+    return (
         <section id="skill">
             <div className="skillContainer">
                 <span className='skillTitle'>Technical Skills</span>
@@ -82,11 +82,12 @@ const Skill = () => {
                     to deliver data-driven solutions that drive business success.
                 </span>
 
+                {/* Skill Grid with Progress Bars */}
                 <div className='skillGrid'>
                     {skills.map((skill, index) => (
-                        <div key={index} className='skillCard' style={{'--delay': `${index * 0.2}s`}}>
+                        <div key={index} className='skillCard' style={{ '--delay': `${index * 0.2}s` }}>
                             <div className="skillHeader">
-                                <div className="skillIcon" style={{color: skill.color}}>
+                                <div className="skillIcon" style={{ color: skill.color }}>
                                     {skill.icon}
                                 </div>
                                 <div className="skillInfo">
@@ -104,43 +105,118 @@ const Skill = () => {
                                 </div>
                             </div>
                             <p className="skillDesc">{skill.description}</p>
-                            <div className="skillGlow" style={{background: skill.color}}></div>
+                            <div className="skillGlow" style={{ background: skill.color }}></div>
                         </div>
                     ))}
                 </div>
 
+                {/* Tech Stack Section */}
                 <div className="techStack">
                     <h3>Core Technologies</h3>
-                    <div className="techIcons">
-                        <div className="techItem">
-                            <span className="techIcon">⚡</span>
-                            <span>Python</span>
+
+                    {/* Technical Languages */}
+                    <div className="techCategory">
+                        <strong>Technical Languages:</strong>
+                        <div className="techIcons">
+                            {[
+                                "Python (Pandas, NumPy, Scikit-learn)",
+                                "SQL (MySQL, SQL Server, Snowflake)",
+                                "R", "C/C++", "Java"
+                            ].map((tech, index) => (
+                                <div key={index} className="techItem">
+                                    <span className="techIcon"></span>
+                                    <span>{tech}</span>
+                                </div>
+                            ))}
                         </div>
-                        <div className="techItem">
-                            <span className="techIcon">🔍</span>
-                            <span>SQL</span>
+                    </div>
+
+                    {/* Scripting & Web Technologies */}
+                    <div className="techCategory">
+                        <strong>Scripting & Web Technologies:</strong>
+                        <div className="techIcons">
+                            {[
+                                "Shell scripting", "JavaScript", "HTML", "CSS",
+                                "Django", "Flask", "React", "Node.js", "REST APIs"
+                            ].map((tech, index) => (
+                                <div key={index} className="techItem">
+                                    <span className="techIcon"></span>
+                                    <span>{tech}</span>
+                                </div>
+                            ))}
                         </div>
-                        <div className="techItem">
-                            <span className="techIcon">📊</span>
-                            <span>Power BI</span>
+                    </div>
+
+                    {/* Tools & Software */}
+                    <div className="techCategory">
+                        <strong>Tools & Software:</strong>
+                        <div className="techIcons">
+                            {[
+                                "Tableau", "Power BI", "Databricks", "Docker", "Git", "SSMS",
+                                "MATLAB", "Jupyter", "Agile/Scrum", "Microsoft Excel (Advanced)"
+                            ].map((tech, index) => (
+                                <div key={index} className="techItem">
+                                    <span className="techIcon"></span>
+                                    <span>{tech}</span>
+                                </div>
+                            ))}
                         </div>
-                        <div className="techItem">
-                            <span className="techIcon">📈</span>
-                            <span>Tableau</span>
+                    </div>
+
+                    {/* Cloud & Platforms */}
+                    <div className="techCategory">
+                        <strong>Cloud & Platforms:</strong>
+                        <div className="techIcons">
+                            {[
+                                "AWS (EC2, S3, Lambda, DynamoDB)",
+                                "Microsoft Azure", "Linux/Unix", "Kubernetes"
+                            ].map((tech, index) => (
+                                <div key={index} className="techItem">
+                                    <span className="techIcon"></span>
+                                    <span>{tech}</span>
+                                </div>
+                            ))}
                         </div>
-                        <div className="techItem">
-                            <span className="techIcon">📋</span>
-                            <span>Excel</span>
-                        </div>
-                        <div className="techItem">
-                            <span className="techIcon">🧮</span>
-                            <span>Pandas</span>
+                    </div>
+
+                    {/* Data & ML Skills */}
+                    <div className="techCategory">
+                        <strong>Data & ML Skills:</strong>
+                        <div className="techIcons">
+                            {[
+                                "Data Modeling", "ETL Pipelines", "Data Warehousing", "Data Cleaning",
+                                "Machine Learning (Regression, Classification, Clustering)",
+                                "Data Visualization", "A/B Testing", "Statistics",
+                                "Data Validation", "Data Governance"
+                            ].map((tech, index) => (
+                                <div key={index} className="techItem">
+                                    <span className="techIcon"></span>
+                                    <span>{tech}</span>
+                                </div>
+                            ))}
                         </div>
                     </div>
                 </div>
-            </div>
+
+                {/* Soft Skills Section */}
+                    <div className="techCategory">
+                        <strong>Soft Skills:</strong>
+                        <div className="techIcons">
+                            {[
+                                "Communication", "Team Player", "Active Listening", "Problem Solving",
+                                "Adaptability", "Time Management", "Creativity", "Critical Thinking",
+                                "Leadership", "Collaboration"
+                            ].map((skill, index) => (
+                                <div key={index} className="techItem">
+                                    <span className="techIcon"></span>
+                                    <span>{skill}</span>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
         </section>
     );
 }
 
-export default Skill
+export default Skill;

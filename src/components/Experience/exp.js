@@ -10,30 +10,29 @@ const Experience = () => {
             id: 1,
             title: "Data Analyst & BI Engineer",
             company: "Ground Effects",
-            period: "Jan 2025 - Present",
+            period: "Jan 2025 - Aug 2025",
             icon: "🚀",
             color: "#00ffff",
             achievements: [
-                "Developed Python ETL scripts reducing manual intervention by 50%",
+                "Automated Python ETL scripts and leveraged Snowflake, SSMS, and SQL to extract, clean, transform, and validate large-scale datasets, significantly reducing manual work by 50% and boosting overall data accuracy by 99%.",
                 "Mastered Snowflake & SQL achieving 99% data accuracy",
-                "Created 10+ Tableau dashboards cutting reporting by 40%",
-                "Boosted operational efficiency by 30% through data solutions"
+                "Collaborated cross-functionally with teams to build 10+ Tableau dashboards, showcasing strong teamwork and improving operational efficiency by 30%."
             ],
-            tech: ["Python", "Snowflake", "Tableau", "SQL"]
+            tech: ["Python", "Snowflake", "Tableau", "SQL", "Azure", "SQL Server"]
         },
         {
             id: 2,
-            title: "Python Developer",
+            title: "Python Developer - Intern",
             company: "Mira Advance Engineering",
             period: "Aug 2023 - Oct 2023",
             icon: "🐍",
-            color: "#ff00ff",
+            color: "#c38370",
             achievements: [
                 "Delivered multiple projects within strict deadlines",
                 "Created demonstration videos for knowledge transfer",
                 "Promoted technical clarity through documentation"
             ],
-            tech: ["Python", "Documentation", "Project Management"]
+            tech: ["Python", "Documentation", "Project Management", "Pandas", "Numpy", "Matpltlib"]
         },
         {
             id: 3,
@@ -41,27 +40,28 @@ const Experience = () => {
             company: "Vision Mechatronics Pvt Ltd",
             period: "Oct 2022 - Apr 2023",
             icon: "⚡",
-            color: "#ffff00",
+            color: "#ffaebc",
             achievements: [
-                "Developed ML algorithms for battery sensor analysis",
+                "Developed Python modules and custom ML algorithms to user requirements for pattern recognition and behavior tagging in lithium-ion battery sensor data, detecting anomalies and threshold breaches.",
                 "Built Django dashboard reducing oversight by 18+ hours/week",
-                "Processed 1M+ data points improving prediction accuracy by 30%"
+                "Designed an LSTM-based model to accurately predict battery health (remaining useful life) and integrated a one-class SVM for anomaly detection, automatically triggering alerts for voltage deviations.",
+                "Implemented real-time monitoring via Django, reducing manual oversight by 18 hours/week for 15+ international clients."
             ],
-            tech: ["Python", "Django", "ML", "Data Analysis"]
+            tech: ["Python", "Django", "ML", "Data Analysis", "SQL"]
         },
         {
             id: 4,
             title: "Data Analyst",
             company: "Sureprep Pvt Ltd",
-            period: "Jun 2022 - Aug 2022",
+            period: "May 2022 - Aug 2022",
             icon: "📊",
-            color: "#00ff00",
+            color: "#c197d2",
             achievements: [
-                "Identified business trends improving efficiency by 30%",
+                "Engineered and implemented automated SQL queries and Power BI reports, effectively eliminating repetitive manual tasks. Took initiative in streamlining complex reporting workflows and enhancing the overall efficiency of business reporting processes.",
                 "Developed automated reporting tools reducing time by 35%",
-                "Designed custom dashboards speeding decision-making by 25%"
+                "Analyzed business data and built stakeholder dashboards using advanced analytics to improve decision-making and operations, boosting efficiency by 30%, driving 25% sales growth, and strengthening client relations."
             ],
-            tech: ["SQL", "Power BI", "Data Analysis"]
+            tech: ["SQL", "Power BI", "Data Analysis", "Python", "Pandas", "Numpy", "Matpltlib", "Seaborn"]
         }
     ];
 

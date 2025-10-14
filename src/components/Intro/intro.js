@@ -6,9 +6,9 @@ import { Link } from 'react-scroll';
 const roles = [
     'Data Analyst',
     'Business Intelligence Engineer',
-    'Python Developer',
     'SQL Expert',
-    'Data Visualization Specialist'
+    'Data Visualization Specialist',
+    'Tableau Developer'
 ];
 
 const Intro = () => {
@@ -41,14 +41,14 @@ const Intro = () => {
     return(
         <section id="intro">
             <div className='IntroContent'>
-                <span className="Hello"> Hello,</span>
+                <span className="Hello"> Hello</span>
                 <span className='Intotext'>I'm <span className='Introname'>Harsh Dhandukiya</span></span>
                 <span className='IntroRole'>A <span className='typingText'>{currentText}</span></span>
-                <p className='Intropara'> <br/> With passion for data, I thrive on transforming numbers into meaningful insights using <br/> python, SQL, and awesome visualization tools like Power BI and Tableau. <br/> Let's work together to uncover the hidden stories behind your data!</p>
+                <p className='Intropara'> <br/> With passion for data, I thrive on transforming numbers into meaningful insights using python, SQL, and awesome visualization tools like Power BI and Tableau. Let's work together to uncover the hidden stories behind your data!</p>
 
                 <div className="buttonContainer">
                     <Link to="#contact"><button className="Btn primary"><div className="hireIcon"></div>Hire Me</button></Link>
-                    <button className="Btn secondary" onClick={() => window.open('/path/to/resume.pdf', '_blank')}><div className="downloadIcon"></div>Download CV</button>
+                    <button className="Btn secondary" onClick={() => window.open('https://drive.google.com/uc?export=download&id=1d-YMT2BR65_TYrmyK4FDAtQFqkpEzwnR', '_blank')}><div className="downloadIcon"></div>Download CV</button>
                 </div>
             </div>
             <img src={bg} alt="Profile" className='bg'/>

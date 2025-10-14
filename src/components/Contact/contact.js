@@ -54,16 +54,26 @@ const Contact = () => {
             setIsSubmitting(true);
             setSubmitStatus('sending');
 
+            // IMPORTANT: Replace these with your actual EmailJS credentials
+            const SERVICE_ID = 'service_vqxaggc';  // Verify this is correct
+            const TEMPLATE_ID = 'template_d6fgmtc';  // Verify this is correct
+            const PUBLIC_KEY = 'mbVWskwUo9M-ApbH6';  // Verify this is correct
+
             emailjs
-                .sendForm('service_vqxaggc', 'template_d6fgmtc', form.current, 'mbVWskwUo9M-ApbH6')
+                .sendForm(SERVICE_ID, TEMPLATE_ID, form.current, PUBLIC_KEY)
                 .then(
-                    () => {
+                    (result) => {
+                        console.log('SUCCESS!', result.text);
                         setSubmitStatus('success');
+                        
+                        // Clear form values
                         setFormValues({
                             from_name: '',
                             from_email: '',
                             message: ''
                         });
+                        
+                        // Clear any errors
                         setFormErrors({});
                         setIsSubmitting(false);
 
@@ -71,16 +81,18 @@ const Contact = () => {
                         setTimeout(() => setSubmitStatus(null), 5000);
                     },
                     (error) => {
-                        console.log('FAILED...', error.text);
+                        console.error('FAILED...', error);
+                        console.error('Error details:', error.text);
                         setSubmitStatus('error');
                         setIsSubmitting(false);
 
                         // Reset error message after 5 seconds
                         setTimeout(() => setSubmitStatus(null), 5000);
-                    },
+                    }
                 );
         } else {
             setFormErrors(errors);
+            setSubmitStatus(null);
         }
     };
 
@@ -98,17 +110,11 @@ const Contact = () => {
             color: '#ff00ff'
         },
         {
-            name: 'Twitter',
-            icon: '🐦',
-            url: '#',
-            color: '#ffff00'
+        name: 'Email',
+        icon: '📧',
+        url: 'mailto:harshdhandukiya2001@gmail.com',
+        color: '#ffff00'
         },
-        {
-            name: 'Instagram',
-            icon: '📸',
-            url: '#',
-            color: '#00ff00'
-        }
     ];
 
     return (
@@ -131,14 +137,14 @@ const Contact = () => {
                                 <div className="infoIcon">📧</div>
                                 <div className="infoContent">
                                     <h3>Email Me</h3>
-                                    <p>harshdhandukiya@gmail.com</p>
+                                    <p>harshdhandukiya2001@gmail.com</p>
                                 </div>
                             </div>
                             <div className="infoCard">
                                 <div className="infoIcon">📍</div>
                                 <div className="infoContent">
                                     <h3>Location</h3>
-                                    <p>Mumbai, India</p>
+                                    <p>Toronto, Canada</p>
                                 </div>
                             </div>
                             <div className="infoCard">

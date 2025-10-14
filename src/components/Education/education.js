@@ -25,7 +25,7 @@ const Education = () => {
                         </div>
                     </div>
                 </div>
-                <a href="https://drive.google.com/file/d/1BzuiXMMMgIXME4jIlmAhhjyb4IO7yl2L/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+                <a href="https://drive.google.com/file/d/1d-YMT2BR65_TYrmyK4FDAtQFqkpEzwnR/view?usp=sharing" target="_blank" rel="noopener noreferrer">
                     <button className="viewResumeButton">View Resume</button>
                 </a>
             </section>
