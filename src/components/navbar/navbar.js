@@ -1,7 +1,6 @@
 import React from  'react';
 import './navbar.css';
 import logo from '../../assets/logo.jpeg';
-import ContactMe from '../../assets/ContactMe.webp';
 import { Link } from 'react-scroll';
 
 const Navbar = () => {
@@ -19,7 +18,8 @@ const Navbar = () => {
             <button className='desktopMenuButton' onClick={() =>{
                 document.getElementById("contact").scrollIntoView({behavior: "smooth"});
             }}>
-                <img src = {ContactMe} alt = '' className='desktopMenuImg'/></button>
+                <div className="contactIcon"></div>
+            </button>
         </nav>
 
     )

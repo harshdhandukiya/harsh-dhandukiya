@@ -1,48 +1,222 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './skill.css';
-import DA from '../../assets/DA.png';
-import PL from '../../assets/PL.png';
-import DV from '../../assets/DV.png';
-import EE from '../../assets/EE.png';
 
 const Skill = () => {
-    return(
-        <section id = "skill">
-            <span className='skillTittle'> What I do</span><br/>
-            <div className="line"></div>
-            <span className='skillDescription'> I'm passionate about starting my career in the data analytics field. I have solid expertise in SQL and Python for data science, including Pandas and Numpy. I'm also proficient in regular Python programming and adept at using Excel for data manipulation. Additionally, I have hands-on experience with data visualization tools like Tableau and Power BI, allowing me to create insightful and impactful visual reports. </span>
-            <div className='skillBars'>
-                <div className='skillBar'>
-                    <img src ={DA} alt ="DataAnalysis" className='skillBarImg' />
-                    <div className='skillBarText'>
-                        <h2>Data Analysis</h2>
-                        <p>I specialize in analyzing data using SQL and Python. I'm also familiar with data science libraries such as Pandas, Numpy, Matplotlib and Seaborn. I can efficiently clean, manipulate, and interpret complex datasets to provide actionable insights.</p>
+    const [progressValues, setProgressValues] = useState({
+        python: 0,
+        sql: 0,
+        powerbi: 0,
+        tableau: 0,
+        excel: 0,
+        software: 0
+    });
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setProgressValues({
+                python: 90,
+                sql: 85,
+                powerbi: 88,
+                tableau: 82,
+                excel: 95,
+                software: 80
+            });
+        }, 500);
+
+        return () => clearTimeout(timer);
+    }, []);
+
+    const skills = [
+        {
+            title: 'Python Programming',
+            description: 'Advanced Python development for data analysis, automation, and building scalable solutions using libraries like Pandas, NumPy, and Scikit-learn.',
+            progress: progressValues.python,
+            icon: '🐍',
+            color: '#00ffff'
+        },
+        {
+            title: 'SQL',
+            description: 'Proficient in writing complex queries, database design, and optimizing large datasets for reporting and analytics.',
+            progress: progressValues.sql,
+            icon: '🗄️',
+            color: '#ff00ff'
+        },
+        {
+            title: 'Power BI',
+            description: 'Create interactive dashboards and reports that transform raw data into actionable business insights.',
+            progress: progressValues.powerbi,
+            icon: '📊',
+            color: '#ffff00'
+        },
+        {
+            title: 'Tableau',
+            description: 'Design interactive visualizations and dashboards to communicate complex data effectively to stakeholders.',
+            progress: progressValues.tableau,
+            icon: '📈',
+            color: '#00ff00'
+        },
+        {
+            title: 'Excel Expertise',
+            description: 'Advanced skills in pivot tables, formulas, macros, and automation for data analysis and reporting.',
+            progress: progressValues.excel,
+            icon: '📋',
+            color: '#ff6600'
+        },
+        {
+            title: 'Software Development',
+            description: 'Experience in building robust software solutions, implementing best practices, and developing applications with clean, maintainable code.',
+            progress: progressValues.software,
+            icon: '💻',
+            color: '#ff1493'
+        }
+    ];
+
+    return (
+        <section id="skill">
+            <div className="skillContainer">
+                <span className='skillTitle'>Technical Skills</span>
+                <div className="cyberLine"></div>
+                <span className='skillDescription'>
+                    Mastering the tools that transform data into actionable insights.
+                    From raw data processing to compelling visualizations, I leverage cutting-edge technologies
+                    to deliver data-driven solutions that drive business success.
+                </span>
+
+                {/* Skill Grid with Progress Bars */}
+                <div className='skillGrid'>
+                    {skills.map((skill, index) => (
+                        <div key={index} className='skillCard' style={{ '--delay': `${index * 0.2}s` }}>
+                            <div className="skillHeader">
+                                <div className="skillIcon" style={{ color: skill.color }}>
+                                    {skill.icon}
+                                </div>
+                                <div className="skillInfo">
+                                    <h3>{skill.title}</h3>
+                                    <div className="progressBar">
+                                        <div
+                                            className="progressFill"
+                                            style={{
+                                                width: `${skill.progress}%`,
+                                                background: `linear-gradient(90deg, ${skill.color}, ${skill.color}80)`
+                                            }}
+                                        ></div>
+                                        <span className="progressText">{skill.progress}%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <p className="skillDesc">{skill.description}</p>
+                            <div className="skillGlow" style={{ background: skill.color }}></div>
+                        </div>
+                    ))}
+                </div>
+
+                {/* Tech Stack Section */}
+                <div className="techStack">
+                    <h3>Core Technologies</h3>
+
+                    {/* Technical Languages */}
+                    <div className="techCategory">
+                        <strong>Technical Languages:</strong>
+                        <div className="techIcons">
+                            {[
+                                "Python (Pandas, NumPy, Scikit-learn)",
+                                "SQL (MySQL, SQL Server, Snowflake)",
+                                "R", "C/C++", "Java"
+                            ].map((tech, index) => (
+                                <div key={index} className="techItem">
+                                    <span className="techIcon"></span>
+                                    <span>{tech}</span>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* Scripting & Web Technologies */}
+                    <div className="techCategory">
+                        <strong>Scripting & Web Technologies:</strong>
+                        <div className="techIcons">
+                            {[
+                                "Shell scripting", "JavaScript", "HTML", "CSS",
+                                "Django", "Flask", "React", "Node.js", "REST APIs"
+                            ].map((tech, index) => (
+                                <div key={index} className="techItem">
+                                    <span className="techIcon"></span>
+                                    <span>{tech}</span>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* Tools & Software */}
+                    <div className="techCategory">
+                        <strong>Tools & Software:</strong>
+                        <div className="techIcons">
+                            {[
+                                "Tableau", "Power BI", "Databricks", "Docker", "Git", "SSMS",
+                                "MATLAB", "Jupyter", "Agile/Scrum", "Microsoft Excel (Advanced)"
+                            ].map((tech, index) => (
+                                <div key={index} className="techItem">
+                                    <span className="techIcon"></span>
+                                    <span>{tech}</span>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* Cloud & Platforms */}
+                    <div className="techCategory">
+                        <strong>Cloud & Platforms:</strong>
+                        <div className="techIcons">
+                            {[
+                                "AWS (EC2, S3, Lambda, DynamoDB)",
+                                "Microsoft Azure", "Linux/Unix", "Kubernetes"
+                            ].map((tech, index) => (
+                                <div key={index} className="techItem">
+                                    <span className="techIcon"></span>
+                                    <span>{tech}</span>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* Data & ML Skills */}
+                    <div className="techCategory">
+                        <strong>Data & ML Skills:</strong>
+                        <div className="techIcons">
+                            {[
+                                "Data Modeling", "ETL Pipelines", "Data Warehousing", "Data Cleaning",
+                                "Machine Learning (Regression, Classification, Clustering)",
+                                "Data Visualization", "A/B Testing", "Statistics",
+                                "Data Validation", "Data Governance"
+                            ].map((tech, index) => (
+                                <div key={index} className="techItem">
+                                    <span className="techIcon"></span>
+                                    <span>{tech}</span>
+                                </div>
+                            ))}
+                        </div>
                     </div>
                 </div>
-                <div className='skillBar'>
-                    <img src ={PL} alt ="ProgrammingLanguage" className='skillBarImg' />
-                    <div className='skillBarText'>
-                        <h2>Programming Expertise</h2>
-                        <p>With extensive knowledge in both Python and SQL, I develop robust scripts and queries to streamline data processing and analysis. My expertise allows me to effectively manage databases, perform complex data extractions, and build powerful analytical tools to solve real-world problems.</p>
+
+                {/* Soft Skills Section */}
+                    <div className="techCategory">
+                        <strong>Soft Skills:</strong>
+                        <div className="techIcons">
+                            {[
+                                "Communication", "Team Player", "Active Listening", "Problem Solving",
+                                "Adaptability", "Time Management", "Creativity", "Critical Thinking",
+                                "Leadership", "Collaboration"
+                            ].map((skill, index) => (
+                                <div key={index} className="techItem">
+                                    <span className="techIcon"></span>
+                                    <span>{skill}</span>
+                                </div>
+                            ))}
+                        </div>
                     </div>
                 </div>
-                <div className='skillBar'>
-                    <img src ={DV} alt ="DataVisualization" className='skillBarImg' />
-                    <div className='skillBarText'>
-                        <h2>Data Visualization</h2>
-                        <p>I have profound knowledge and expertise working with data visualization tools such as Power BI and Tableau to create compelling data visualization dashboards to help present data in a clear and impactful way, making it easier for stakeholders to understand key metrics and trends.</p>
-                    </div>
-                </div>
-                <div className='skillBar'>
-                    <img src ={EE} alt ="ExcelExpertise" className='skillBarImg' />
-                    <div className='skillBarText'>
-                        <h2>Excel Expertise</h2>
-                        <p>Leveraging my advanced skills in Microsoft Excel, I transform raw data into meaningful insights through dynamic dashboards and complex analytical models, enabling data-driven decision-making and strategic planning.</p>
-                    </div>
-                </div>
-            </div>
         </section>
     );
 }
 
-export default Skill
+export default Skill;
